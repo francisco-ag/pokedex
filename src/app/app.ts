@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { PokemonComponent } from './components/pokemon/pokemon';
+import { MusicaComponent } from './components/musica/musica';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [PokemonComponent, MusicaComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('pokedex');
+  vistaActual: 'pokemon' | 'musica' = 'pokemon';
+
+  cambiarVista(vista: 'pokemon' | 'musica'): void {
+    this.vistaActual = vista;
+  }
 }

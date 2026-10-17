@@ -1,0 +1,67 @@
+:host {
+  display: block;
+}
+
+.buscador {
+  display: flex;
+  gap: 5px;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid #aeb4ba;
+  border-radius: 5px;
+}
+
+button {
+  padding: 8px 10px;
+  border: 1px solid #aeb4ba;
+  border-radius: 5px;
+  background: linear-gradient(#fff, #d9dde1);
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.tarjeta-pokemon {
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #d5d9dd;
+  border-radius: 8px;
+  background: linear-gradient(#fff, #edf0f3);
+}
+
+.imagen-pokemon {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.tipos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tipos span {
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: #d9e7f4;
+  font-size: 11px;
+}
+
+.error {
+  color: #a00000;
+}
+
+.mensaje {
+  font-size: 12px;
+}

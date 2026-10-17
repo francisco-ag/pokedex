@@ -1,0 +1,37 @@
+<form (ngSubmit)="buscarLetra()">
+  <label for="artista">Artista</label>
+  <input
+    id="artista"
+    name="artista"
+    [(ngModel)]="artista"
+    placeholder="Ej. Coldplay"
+  />
+
+  <label for="tituloCancion">Canción</label>
+  <input
+    id="tituloCancion"
+    name="tituloCancion"
+    [(ngModel)]="tituloCancion"
+    placeholder="Ej. Yellow"
+  />
+
+  <button type="submit" [disabled]="cargando">
+    {{ cargando ? 'Buscando...' : 'Buscar letra' }}
+  </button>
+</form>
+
+@if (error) {
+  <p class="error">{{ error }}</p>
+}
+
+@if (cargando) {
+  <p class="mensaje">Buscando canción...</p>
+}
+
+@if (letra) {
+  <article class="letra">
+    <h3>{{ tituloCancion.toUpperCase() }}</h3>
+    <p>{{ artista }}</p>
+    <pre>{{ letra }}</pre>
+  </article>
+}

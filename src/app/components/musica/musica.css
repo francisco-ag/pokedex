@@ -1,0 +1,64 @@
+:host {
+  display: block;
+}
+
+label {
+  display: block;
+  margin: 9px 0 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aeb4ba;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px;
+  border: 1px solid #aeb4ba;
+  border-radius: 5px;
+  background: linear-gradient(#fff, #d9dde1);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.letra {
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.artista-letra {
+  color: #666;
+  font-size: 12px;
+}
+
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.error {
+  color: #a00000;
+  font-size: 12px;
+}
+
+.mensaje {
+  font-size: 12px;
+}

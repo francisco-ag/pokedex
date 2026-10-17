@@ -1,0 +1,51 @@
+<h2>Pokédex</h2>
+
+<form (ngSubmit)="buscarPokemon()">
+  <label for="nombrePokemon">Buscar Pokémon</label>
+
+  <div class="buscador">
+    <input
+      id="nombrePokemon"
+      type="text"
+      name="nombrePokemon"
+      [(ngModel)]="nombrePokemon"
+      placeholder="Ej. pikachu"
+    />
+
+    <button type="submit" [disabled]="cargando">
+      {{ cargando ? 'Buscando...' : 'Buscar' }}
+    </button>
+  </div>
+</form>
+
+@if (cargando) {
+  <p class="mensaje">Consultando PokéAPI...</p>
+}
+
+@if (error) {
+  <p class="error">{{ error }}</p>
+}
+
+@if (pokemon; as p) {
+  <article class="tarjeta-pokemon">
+    @if (p.sprites.front_default) {
+      <img
+        [src]="p.sprites.front_default"
+        [alt]="p.name"
+        class="imagen-pokemon"
+      />
+    }
+
+    <h3>{{ p.name | titlecase }}</h3>
+
+    <p>Número: {{ p.id }}</p>
+    <p>Altura: {{ p.height / 10 }} m</p>
+    <p>Peso: {{ p.weight / 10 }} kg</p>
+
+    <div class="tipos">
+      @for (tipo of p.types; track tipo.type.name) {
+        <span>{{ tipo.type.name }}</span>
+      }
+    </div>
+  </article>
+}
