@@ -268,3 +268,68 @@
     height: 200px;
   }
 }
+
+
+/* Menú de navegación */
+
+.menu-vistas {
+  animation: aparecer 0.15s ease-in;
+}
+
+.menu-vistas h2 {
+  margin-bottom: 5px;
+}
+
+.instruccion,
+.ayuda-menu {
+  color: #666;
+  font-size: 11px;
+}
+
+.lista-vistas {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 15px;
+}
+
+.contenido .opcion-vista {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  text-align: left;
+  font-size: 13px;
+}
+
+.contenido .opcion-vista.seleccionada {
+  border-color: #225da0;
+  background: linear-gradient(#4e91d5, #2465a7);
+  color: white;
+}
+
+.contenido .opcion-vista:focus-visible {
+  outline: 2px solid #3679c5;
+  outline-offset: 2px;
+}
+
+.ayuda-menu {
+  margin-top: 14px;
+  text-align: center;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+

@@ -1,3 +1,4 @@
+
 <main class="pagina">
   <section class="ipod">
 
@@ -9,19 +10,45 @@
       </header>
 
       <section class="contenido">
-        @if (vistaActual === 'pokemon') {
-          <app-pokemon />
+
+        @if (menuAbierto) {
+          <section class="menu-vistas">
+            <h2>Menú principal</h2>
+
+            <p class="instruccion">
+              Usa ◀ y ▶ para navegar
+            </p>
+
+            <div class="lista-vistas">
+              @for (vista of vistas; track vista.id; let i = $index) {
+                <button
+                  type="button"
+                  class="opcion-vista"
+                  [class.seleccionada]="i === indiceSeleccionado"
+                  (click)="indiceSeleccionado = i; confirmarSeleccion()"
+                >
+                  <span>{{ i === indiceSeleccionado ? '▶' : ' ' }}</span>
+                  {{ vista.nombre }}
+                </button>
+              }
+            </div>
+
+            <p class="ayuda-menu">
+              Presiona OK para entrar
+            </p>
+          </section>
+        } @else {
+          <ng-container
+            [ngComponentOutlet]="componenteActual"
+          />
         }
 
-        @if (vistaActual === 'musica') {
-          <app-musica />
-        }
       </section>
 
       <footer class="barra-inferior">
-        <span>MENU</span>
+        <span (click)="irAlMenu()">MENU</span>
         <span>
-          {{ vistaActual === 'pokemon' ? 'POKÉDEX' : 'MÚSICA' }}
+          {{ menuAbierto ? 'VISTAS' : nombreVistaActual }}
         </span>
       </footer>
 
@@ -32,7 +59,7 @@
       <button
         class="control menu"
         type="button"
-        (click)="cambiarVista('pokemon')"
+        (click)="alternarMenu()"
       >
         MENU
       </button>
@@ -40,8 +67,8 @@
       <button
         class="control anterior"
         type="button"
-        aria-label="Ir a Pokédex"
-        (click)="cambiarVista('pokemon')"
+        aria-label="Anterior"
+        (click)="moverSeleccion(-1)"
       >
         ◀
       </button>
@@ -49,8 +76,8 @@
       <button
         class="control siguiente"
         type="button"
-        aria-label="Ir a música"
-        (click)="cambiarVista('musica')"
+        aria-label="Siguiente"
+        (click)="moverSeleccion(1)"
       >
         ▶
       </button>
@@ -58,8 +85,8 @@
       <button
         class="control reproducir"
         type="button"
-        aria-label="Abrir música"
-        (click)="cambiarVista('musica')"
+        aria-label="Abrir menú"
+        (click)="alternarMenu()"
       >
         ▶❚❚
       </button>
@@ -67,8 +94,8 @@
       <button
         class="centro"
         type="button"
-        aria-label="Abrir Pokédex"
-        (click)="cambiarVista('pokemon')"
+        aria-label="Aceptar selección"
+        (click)="confirmarSeleccion()"
       >
         OK
       </button>
