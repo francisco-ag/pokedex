@@ -1,0 +1,82 @@
+.clima h2 {
+  margin: 0 0 8px;
+}
+
+.clima p,
+.clima label {
+  font-size: 12px;
+}
+
+.clima label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.buscador-clima {
+  display: flex;
+  gap: 5px;
+}
+
+.buscador-clima input {
+  min-width: 0;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aeb4ba;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.buscador-clima button {
+  padding: 7px;
+  border: 1px solid #aeb4ba;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buscador-clima button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.resultado-clima {
+  margin-top: 12px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #d5d9dd;
+  border-radius: 8px;
+  background: linear-gradient(#fff, #edf0f3);
+}
+
+.resultado-clima h3 {
+  margin: 0;
+}
+
+.pais,
+.actualizacion {
+  color: #666;
+}
+
+.temperatura {
+  margin: 8px 0;
+  font-size: 30px !important;
+  font-weight: bold;
+}
+
+.datos-clima {
+  margin-top: 10px;
+  padding-top: 5px;
+  border-top: 1px solid #d5d9dd;
+  text-align: left;
+}
+
+.datos-clima p {
+  margin: 6px 0;
+}
+
+.error-clima {
+  padding: 8px;
+  border-radius: 5px;
+  background: #ffe4e4;
+  color: #a00000;
+}

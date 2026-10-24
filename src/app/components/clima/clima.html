@@ -1,0 +1,68 @@
+<section class="clima">
+  <h2>Clima actual</h2>
+  <p>Consulta el clima de cualquier ciudad.</p>
+
+  <form (ngSubmit)="buscar()">
+    <label for="ciudad">Ciudad</label>
+
+    <div class="buscador-clima">
+      <input id="ciudad" name="ciudad" [(ngModel)]="ciudad" placeholder="Ej. Puebla" required />
+
+      <button type="submit" [disabled]="cargando">
+        {{ cargando ? 'Buscando...' : 'Buscar' }}
+      </button>
+
+    </div>
+  </form>
+
+  @if (cargando) {
+  <p class="estado-clima">Consultando el clima...</p>
+  }
+
+  @if (error) {
+  <p class="error-clima" role="alert">{{ error }}</p>
+  }
+
+  @if (clima && ubicacion) {
+  <article class="resultado-clima">
+    <h3>{{ ubicacion.name }}</h3>
+
+    <p class="pais">
+      {{ ubicacion.admin1 ? ubicacion.admin1 + ', ' : '' }}
+      {{ ubicacion.country || '' }}
+    </p>
+
+    <p class="temperatura">
+      {{ clima.current.temperature_2m }} °C
+    </p>
+
+    <p class="descripcion">{{ descripcionClima }}</p>
+
+    <div class="datos-clima">
+      <p>
+        <strong>Sensación:</strong>
+        {{ clima.current.apparent_temperature }} °C
+      </p>
+
+      <p>
+        <strong>Humedad:</strong>
+        {{ clima.current.relative_humidity_2m }} %
+      </p>
+
+      <p>
+        <strong>Viento:</strong>
+        {{ clima.current.wind_speed_10m }} km/h
+      </p>
+
+      <p>
+        <strong>Precipitación:</strong>
+        {{ clima.current.precipitation }} mm
+      </p>
+    </div>
+
+    <p class="actualizacion">
+      Zona horaria: {{ clima.timezone }}
+    </p>
+  </article>
+  }
+</section>

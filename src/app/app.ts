@@ -4,6 +4,7 @@ import { NgComponentOutlet } from '@angular/common';
 
 import { PokemonComponent } from './components/pokemon/pokemon';
 import { MusicaComponent } from './components/musica/musica';
+import { ClimaComponent } from './components/clima/clima';
 
 interface Vista {
   id: string;
@@ -32,6 +33,11 @@ export class App {
       id: 'musica',
       nombre: 'MÚSICA',
       componente: MusicaComponent
+    },
+    {
+      id: 'clima',
+      nombre: 'CLIMA',
+      componente: ClimaComponent
     }
   ];
 
